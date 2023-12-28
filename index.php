@@ -21,6 +21,7 @@ $allCards2 = json_decode($allCards, true); // Decode the JSON into an associativ
     <?php if(isset($_SESSION["username"])): ?>
         <a href="user.php"><img href="user.php" src="/sprites/login.png" alt="User"></a>
         <a href="user.php"><?php echo $_SESSION["username"];?></a>
+        <a                ><?php echo $_SESSION["username"];?></a>
         <a href="logout.php">Logout</a>
     <?php else: ?>
         <a href="login.php"><img src="/sprites/login.png" alt="Login">Login</a>
