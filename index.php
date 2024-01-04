@@ -1,33 +1,51 @@
 <?php
 session_start();
-$allCards = file_get_contents("card.json"); // Get the contents of the JSON file
-$allCards2 = json_decode($allCards, true); // Decode the JSON into an associative array
+$allCards = json_decode(file_get_contents("card.json"), true);
 $allUsers = json_decode(file_get_contents("user.json"), true);
+$selectedType = isset($_GET['type']) ? $_GET['type'] : '';
 
-// Check if the user is logged in
-if (isset($_SESSION["username"])) {
-    $users = $allUsers;
-    $currentUser = array_filter($users, function ($user) {
-        return $user["username"] === $_SESSION["username"];
-    });
-
-    // Since array_filter preserves array keys, we get the first element
-    $currentUser = reset($currentUser);
-    $money = $currentUser ? $currentUser["money"] : 0;
+$userC = [];
+foreach ($allUsers as &$user) {
+    if (isset($_SESSION["username"]) && $user["username"] === $_SESSION["username"]) {
+        $userC = &$user;
+        $money = $userC["money"];
+    }
 }
 
-// Pagination setup
-$cardsPerPage = 10;
-$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$filteredCards = [];
+foreach ($allCards as $cardNum => $card) {
+    if ($selectedType == '' || $card['type'] == $selectedType) {
+        $filteredCards[$cardNum] = $card;
+    }
+}
+
+if (isset($_GET["buy_card"])) {
+    $cardNum = intval($_GET["buy_card"]);
+    $cardPrice = $allCards[$cardNum]["price"];
+    $admin = &$allUsers[array_search("admin", array_column($allUsers, "username"))];
+
+    if (!empty($userC) && count($userC["cards"]) < 5 && $userC["money"] >= $cardPrice && in_array($cardNum, $admin["cards"])) {
+        $userC["money"] -= $cardPrice;
+        $userC["cards"][] = $cardNum;
+        $admin["cards"] = array_diff($admin["cards"], [$cardNum]);
+        $admin["cards"] = array_values($admin["cards"]);
+        file_put_contents("user.json", json_encode($allUsers, JSON_PRETTY_PRINT)); // Update user data
+    }
+
+    header("Location: index.php");
+    exit();
+}
+
+$shownCards = 9;
+$page = isset($_GET["page"]) ? (int)$_GET["page"] : 1;
 $page = max($page, 1);
-$offset = ($page - 1) * $cardsPerPage;
-// Slice the cards array to get just the subset of cards for the current page
-$displayCards = array_slice($allCards2, $offset, $cardsPerPage);
+$firstPage = ($page - 1) * $shownCards;
+$lastPage = $firstPage + $shownCards;
+$allPages = ceil(count($filteredCards) / $shownCards);
 
-// Calculate the total number of pages
-$totalPages = ceil(count($allCards2) / $cardsPerPage);
-
+$shoCards = array_slice($filteredCards, $firstPage, $shownCards, true);
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,6 +54,9 @@ $totalPages = ceil(count($allCards2) / $cardsPerPage);
     <title>PokémonTCG</title>
     <link rel="icon" href="/sprites/favicon.ico">
     <link rel="stylesheet" href="styles.css">
+    <script>
+        function buyCard(cardNum) { window.location.href = '?buy_card=' + cardNum; }
+    </script>
 </head>
 <body>
 <header>
@@ -57,50 +78,78 @@ $totalPages = ceil(count($allCards2) / $cardsPerPage);
     <?php endif; ?>
 </div>
 
-<div class="card-placer">
-    <?php foreach ($displayCards as $card): ?>
-        <div class="card">
-            <div class="card-image <?= $card["type"];?>">
-                <a href="card.php?card=<?= $card["name"]; ?>">
-                    <img src="<?= $card["image2"]; ?>" alt="<?= $card["name"]; ?>">
-                </a>
-            </div>
-            <div class="card-content">
-                <a href="card.php?card=<?= $card["name"]; ?>">
-                    <h3 class="card-name"><?= $card["name"]; ?></h3>
-                </a>
-                <span class="card-type <?= $card["type"];?>"><?= $card["type"]; ?></span>
-                <div class="card-stats">
-                <span class="hp">
-                    <img src="sprites/HP.png" alt="HP"> <?= $card["hp"]; ?>
-                </span>
-                    <span class="attack">
-                    <img src="sprites/Attack.png" alt="Attack"> <?= $card["attack"]; ?>
-                </span>
-                    <span class="defense">
-                    <img src="sprites/Defense.png" alt="Defense"> <?= $card["defense"]; ?>
-                </span>
-                </div>
-                <div class="card-price">
-                    <img src="sprites/Money.png" alt="Money"> <?= $card["price"]; ?>
-                </div>
-            </div>
-        </div>
-    <?php endforeach; ?>
+<div class="filter-form">
+    <form method="get">
+        <select name="type" id="type" onchange="this.form.submit()">
+            <option value="">All Types</option>
+            <?php
+            $types = ["Bug", "Dark", "Dragon", "Electric", "Fairy", "Fighting", "Fire", "Flying", "Ghost",
+                "Grass", "Ground", "Ice", "Normal", "Poison", "Psychic", "Rock", "Steel", "Water"];
+            foreach ($types as $type) {
+                $selected = ($selectedType === $type) ? ' selected' : '';
+                echo "<option value=\"$type\"$selected>$type</option>";
+            }
+            ?>
+        </select>
+    </form>
 </div>
 
-<div class="pagination">
+<div class="card-placer">
+    <?php foreach ($shoCards as $cardNum => $card):
+        //$cardNum += 1; // Adjusting the index to match the card num
+
+        if (!isset($allCards[$cardNum]) || !is_array($allCards[$cardNum])) {
+            echo "<div class='card'>Card isn't available.</div>"; continue;
+        }
+
+        $card = $allCards[$cardNum];
+        $cardType = isset($card["type"]) ? $card["type"] : "Unknown Type";
+        $cardName = isset($card["name"]) ? $card["name"] : "Unknown Name";
+        $cardImage = isset($card["image2"]) ? $card["image2"] : "default_image.png";
+
+        $didBuy = false;
+        $buyerName = "";
+        foreach ($allUsers as $user) {
+            if (in_array($cardNum, $user["cards"])) {
+                $didBuy = true;
+                $buyerName = $user["username"];
+                break;
+            }
+        }
+
+        echo "<div class='card'>";
+        echo "<div class='card-image {$cardType}'><a href='card.php?card={$cardName}'><img src='{$cardImage}' alt='{$cardName}'></a></div>";
+        echo "<div class='card-content'>";
+        echo "<a href='card.php?card={$cardName}'><h3 class='card-name'>{$cardName}</h3></a>";
+        echo "<span class='card-type {$cardType}'>{$cardType}</span>";
+        echo "<div class='card-stats'>";
+        echo "<span class='hp'><img src='sprites/HP.png' alt='HP'> {$card["hp"]}</span>";
+        echo "<span class='attack'><img src='sprites/Attack.png' alt='Attack'> {$card["attack"]}</span>";
+        echo "<span class='defense'><img src='sprites/Defense.png' alt='Defense'> {$card["defense"]}</span>";
+        echo "</div>";
+
+        if ($didBuy && $buyerName != "admin") {
+            echo "<div class='card-price'>Bought by $buyerName</div>";
+        } else if (isset($_SESSION["username"]) && $userC["username"] != "admin" && count($userC["cards"]) < 5) {
+            echo "<div class='card-price' onclick='buyCard(\"$cardNum\")'>₽{$card["price"]}</div>";
+        }
+        echo "</div></div>";
+    endforeach; ?>
+</div>
+
+<div class="navkeys">
     <?php if ($page > 1): ?>
         <a href="?page=<?= $page - 1 ?>">&laquo; Previous</a>
     <?php endif; ?>
-    <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-        <a href="?page=<?= $i ?>" class="<?= $page === $i ? 'active' : '' ?>"><?= $i ?></a>
+    <?php for ($i = 1; $i <= $allPages; $i++): ?>
+        <a href="?page=<?= $i ?>&type=<?= $selectedType ?>" class="<?= $page === $i ? 'active' : '' ?>"><?= $i ?></a>
     <?php endfor; ?>
-    <?php if ($page < $totalPages): ?>
+    <?php if ($page < $allPages): ?>
         <a href="?page=<?= $page + 1 ?>">Next &raquo;</a>
     <?php endif; ?>
 </div>
 
+<script src="script.js"></script>
 </body>
 <footer>
     <p>PokémonTCG • Mohammed Efaz • © • <img src="sprites/charizard2_.png"></p>
