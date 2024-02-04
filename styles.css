@@ -1,0 +1,377 @@
+body {
+    margin: 0;
+    font-family: Literata, Candara, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url('sprites/background.jpg');
+}
+
+header, footer {
+    padding: 10px 0;
+    background-color: #b0231a;
+    color: white;
+    font-size: 1.2em;
+    text-align: center;
+    background-image: url('sprites/background7.png');
+    background-position: top;
+}
+
+footer {
+    margin-top: auto;
+    background-position: bottom;
+}
+
+.card-placer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 10px;
+    padding: 20px 20px 0;
+    max-width: 1000px;
+}
+
+.card {
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    transition: transform 0.175s ease, box-shadow 0.175s ease;
+    width: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    min-width: 40px;
+}
+
+.card-image {
+    width: 180px;
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+    background-color: #e0e0e0;
+    padding: 10px;
+}
+
+.card-image img {
+    width: 98%;
+    height: auto;
+    display: block;
+
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 10px 40px 40px;
+    background-color: white;
+}
+
+.card-content a {
+    text-decoration: none;
+}
+
+.card-name {
+    margin: 0;
+    color: #517d81;
+}
+
+.card-type {
+    margin-bottom: 10px;
+    display: block;
+    font-size: 0.8em;
+    border-radius: 4px;
+    color: white;
+}
+
+.card-stats {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card-stats span, .card-price {
+    margin-right: 18px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.card-stats span:last-child { margin-right: 0; }
+
+.card-stats img, .card-price img {
+    margin-right: 4px;
+    width: 18px;
+    height: 18px;
+}
+
+.card-price {
+    background-color: #b0231a;
+    color: white;
+    padding: 4px 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card h3, .card p { margin: 5px 0; }
+
+.Bug { background-color: #b28b42; }
+.Dark { background-color: #434556; }
+.Dragon { background-color: #418b92; }
+.Electric { background-color: #e1e178; }
+.Fairy { background-color: #fbb8e7; }
+.Fighting { background-color: #d36623; }
+.Fire { background-color: #fb7c24; }
+.Flying { background-color: #92b1c5; }
+.Ghost { background-color: #8f668f; }
+.Grass { background-color: #588861; }
+.Ground { background-color: #6d481f; }
+.Ice { background-color: #d7ecf5; }
+.Normal { background-color: #c798a6; }
+.Poison { background-color: #9a69d3; }
+.Psychic { background-color: #b43275; }
+.Rock { background-color: #8c3c23; }
+.Steel { background-color: #529a81; }
+.Water { background-color: #85a7fa; }
+
+.sidebar {
+    position: fixed;
+    top: 20%;
+    left: 0;
+    font-size: small;
+    width: 57px;
+    border: 2px solid black;
+    background-color: #4CAF50;
+    border-radius: 0 10px 10px 0;
+    padding: 10px 5px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+    z-index: 100;
+}
+
+.sidebar a {
+    margin: 8px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar img {
+    margin-bottom: 5px;
+    width: 55px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.navkeys {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+    padding: 0 10px 10px;
+}
+
+.navkeys a {
+    padding: 8px 12px;
+    margin: 0 4px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    transition: all 0.3s;
+}
+
+.navkeys a.active {
+    background-color: #b0231a;
+    color: white;
+    border: 1px solid #b0231a;
+}
+
+.navkeys a:hover {
+    background-color: #ddd;
+}
+
+@media (max-width: 1024px) {
+    header, footer {
+        width: 1040px;
+    }
+}
+
+/***************************************** Card.php *****************************************/
+.card-d {
+    text-align: center;
+    padding: 20px;
+}
+
+.card-i {
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    max-width: 500px;
+    text-align: center;
+}
+
+.card-imagei {
+    margin: 0 auto 15px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #606060;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.card-imagei img {
+    width: 100%;
+    height: auto;
+}
+
+.card-a button {
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 10px 20px;
+    background-color: #b0231a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card-a button:hover {
+    background-color: #7a0e04;
+}
+
+/***************************************** login.php *****************************************/
+.form-c {
+    margin: 20px auto;
+    display: block;
+    max-width: 400px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.form-u { margin-bottom: 15px; }
+
+.form-u label {
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-u input {
+    width: calc(100% - 16px);
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #f3112c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover { background-color: #c70b1a; }
+
+.error {
+    margin-bottom: 15px;
+    color: red;
+}
+
+.gif-c {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.gif-c img {
+    max-width: 50%;
+    height: 100px;
+}
+
+.form-ci {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#pokemon-select, #pokemon-stats {
+    flex: 1;
+    min-width: 300px;
+}
+
+#picture {
+    max-width: 200px;
+    max-height: 200px;
+    display: block;
+}
+
+/***************************************** card2.php *****************************************/
+.form-cii {
+    margin: 20px;
+    display: block;
+    max-width: 600px;
+    max-height: 800px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+/***************************************** user.php *****************************************/
+.card-contenti {
+    padding: 10px 40px 40px;
+    background-color: white;
+}
+
+.card-contenti a { text-decoration: none; }
+
+.card-placeri {
+    margin: 10px;
+    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    max-width: 1000px;
+    min-width: 30px;
+    align-items: center;
+}
+
+.card-placerii {
+    margin: 0;
+    padding-top: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+}
+
+h2 {
+    text-align: center;
+}

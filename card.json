@@ -1,0 +1,412 @@
+{
+    "1": {
+        "name": "Arceus",
+        "type": "Normal",
+        "hp": 10000,
+        "attack": 999,
+        "defense": 999,
+        "price": 10000,
+        "description": "Arceus, the Alpha Pok\u00e9mon, is said to have shaped the universe with its thousand arms. Its presence is a balance across dimensions.",
+        "image2": "sprites\/Arceus.webp"
+    },
+    "2": {
+        "name": "Snorlax",
+        "type": "Normal",
+        "hp": 950,
+        "attack": 110,
+        "defense": 65,
+        "price": 900,
+        "description": "Snorlax, the Sleeping Pok\u00e9mon, has an appetite that can rival its immense size. It can be quite formidable when awake, though it prefers to nap.",
+        "image2": "sprites\/Snorlax.webp"
+    },
+    "3": {
+        "name": "Charizard",
+        "type": "Fire",
+        "hp": 950,
+        "attack": 120,
+        "defense": 78,
+        "price": 1000,
+        "description": "Charizard, the Flame Pok\u00e9mon, soars through the sky seeking powerful opponents. Its fiery breath is hot enough to melt boulders.",
+        "image2": "sprites\/Charizard.webp"
+    },
+    "4": {
+        "name": "Blastoise",
+        "type": "Water",
+        "hp": 950,
+        "attack": 83,
+        "defense": 100,
+        "price": 1000,
+        "description": "Blastoise, the Shellfish Pok\u00e9mon, can blast water cannons with such precision, they can hit a target over 160 feet away.",
+        "image2": "sprites\/Blastoise.webp"
+    },
+    "5": {
+        "name": "Mewtwo",
+        "type": "Psychic",
+        "hp": 10000,
+        "attack": 888,
+        "defense": 999,
+        "price": 10000,
+        "description": "Mewtwo was created by recombining Mew's genes. It's said to have the most savage heart among Pok\u00e9mon. It lacks compassion and does not care for humans.",
+        "image2": "sprites\/Mewtwo.webp"
+    },
+    "6": {
+        "name": "Alakazam",
+        "type": "Psychic",
+        "hp": 900,
+        "attack": 50,
+        "defense": 45,
+        "price": 850,
+        "description": "Alakazam, the Psi Pok\u00e9mon, wields an IQ of over 5,000. Its formidable psychic abilities are used to carry out complex calculations and predict the future.",
+        "image2": "sprites\/Alakazam.webp"
+    },
+    "7": {
+        "name": "Gyarados",
+        "type": "Water",
+        "hp": 930,
+        "attack": 125,
+        "defense": 79,
+        "price": 920,
+        "description": "Gyarados, the Atrocious Pok\u00e9mon, is known for its destructive nature. Once it begins its rampages, it doesn't stop until everything around it is destroyed.",
+        "image2": "sprites\/Gyarados.webp"
+    },
+    "8": {
+        "name": "Dragonite",
+        "type": "Dragon",
+        "hp": 920,
+        "attack": 134,
+        "defense": 95,
+        "price": 950,
+        "description": "Dragonite, the Dragon Pok\u00e9mon, is kind-hearted and can fly faster than the speed of sound. It is a symbol of true power in the Pok\u00e9mon world.",
+        "image2": "sprites\/Dragonite.webp"
+    },
+    "9": {
+        "name": "Raichu",
+        "type": "Electric",
+        "hp": 850,
+        "attack": 90,
+        "defense": 55,
+        "price": 800,
+        "description": "Raichu, the Mouse Pok\u00e9mon, can shock with more than 100,000 volts enough to knock out a Dragonite. Despite its power, it maintains a friendly disposition.",
+        "image2": "sprites\/Raichu.webp"
+    },
+    "10": {
+        "name": "Zapdos",
+        "type": "Electric",
+        "hp": 900,
+        "attack": 90,
+        "defense": 85,
+        "price": 1000,
+        "description": "Zapdos, one of the legendary birds, crackles with electricity. Its lightning strikes are said to be the very embodiment of a thunderstorm.",
+        "image2": "sprites\/Zapdos.webp"
+    },
+    "11": {
+        "name": "Venusaur",
+        "type": "Grass",
+        "hp": 920,
+        "attack": 100,
+        "defense": 123,
+        "price": 900,
+        "description": "Venusaur, the Seed Pok\u00e9mon, rules over the forest with its flower's fragrant scent and powerful pollen that has revitalizing effects on the flora.",
+        "image2": "sprites\/Venusaur.webp"
+    },
+    "12": {
+        "name": "Exeggutor",
+        "type": "Grass",
+        "hp": 880,
+        "attack": 95,
+        "defense": 85,
+        "price": 850,
+        "description": "Exeggutor, the Coconut Pok\u00e9mon, uses psychic powers to communicate with others. It's known for its high intellect and telepathic abilities.",
+        "image2": "sprites\/Exeggutor.webp"
+    },
+    "13": {
+        "name": "Lugia",
+        "type": "Psychic",
+        "hp": 10000,
+        "attack": 90,
+        "defense": 130,
+        "price": 10000,
+        "description": "Lugia, the guardian of the seas, is capable of calming storms and is said to appear only when peace reigns over the ocean waters.",
+        "image2": "sprites\/Lugia.webp"
+    },
+    "14": {
+        "name": "Ho-Oh",
+        "type": "Fire",
+        "hp": 10000,
+        "attack": 130,
+        "defense": 90,
+        "price": 10000,
+        "description": "Ho-Oh, the Rainbow Pok\u00e9mon, spreads joy and peace, its feathers glinting in seven colors, and is said to live at the foot of a rainbow.",
+        "image2": "sprites\/Ho-Oh.webp"
+    },
+    "15": {
+        "name": "Machamp",
+        "type": "Fighting",
+        "hp": 900,
+        "attack": 130,
+        "defense": 80,
+        "price": 890,
+        "description": "Machamp, the Superpower Pok\u00e9mon, can deliver a flurry of 1,000 punches in just two seconds. It's a true powerhouse.",
+        "image2": "sprites\/Machamp.webp"
+    },
+    "16": {
+        "name": "Hitmonlee",
+        "type": "Fighting",
+        "hp": 850,
+        "attack": 120,
+        "defense": 53,
+        "price": 800,
+        "description": "Hitmonlee's legs freely contract and stretch, allowing it to deliver high kicks that can shatter a boulder.",
+        "image2": "sprites\/Hitmonlee.webp"
+    },
+    "17": {
+        "name": "Gengar",
+        "type": "Ghost",
+        "hp": 260,
+        "attack": 65,
+        "defense": 80,
+        "price": 320,
+        "description": "Gengar, the Shadow Pok\u00e9mon, loves to cast curses and lurk in the shadows of people and Pok\u00e9mon alike, always with a mischievous grin.",
+        "image2": "sprites\/Gengar.webp"
+    },
+    "18": {
+        "name": "Misdreavus",
+        "type": "Ghost",
+        "hp": 200,
+        "attack": 60,
+        "defense": 60,
+        "price": 280,
+        "description": "Misdreavus, the Screech Pok\u00e9mon, loves to startle people and feed off their fear. It's known to be quite the prankster.",
+        "image2": "sprites\/Misdreavus.webp"
+    },
+    "19": {
+        "name": "Steelix",
+        "type": "Steel",
+        "hp": 910,
+        "attack": 85,
+        "defense": 200,
+        "price": 910,
+        "description": "Steelix lives even further underground than Onix. This Iron Snake Pok\u00e9mon is known for its dig speed and the high-pitched grinding noise of its steel body.",
+        "image2": "sprites\/Steelix.webp"
+    },
+    "20": {
+        "name": "Scizor",
+        "type": "Steel",
+        "hp": 870,
+        "attack": 130,
+        "defense": 100,
+        "price": 880,
+        "description": "Scizor, the Pincer Pok\u00e9mon, flies at high speeds with wings that are not used for flying but for adjusting its body temperature.",
+        "image2": "sprites\/Scizor.webp"
+    },
+    "21": {
+        "name": "Kyogre",
+        "type": "Water",
+        "hp": 10000,
+        "attack": 100,
+        "defense": 90,
+        "price": 10000,
+        "description": "Kyogre is said to be the personification of the sea itself. Legends tell of its many clashes against Groudon, as each sought to gain the power of nature.",
+        "image2": "sprites\/Kyogre.webp"
+    },
+    "22": {
+        "name": "Groudon",
+        "type": "Ground",
+        "hp": 10000,
+        "attack": 150,
+        "defense": 240,
+        "price": 10000,
+        "description": "Groudon has appeared in mythology as the creator of the land. It sleeps in magma underground and is said to make volcanoes erupt on awakening.",
+        "image2": "sprites\/Groudon.webp"
+    },
+    "23": {
+        "name": "Pidgeot",
+        "type": "Flying",
+        "hp": 579,
+        "attack": 80,
+        "defense": 75,
+        "price": 450,
+        "description": "This majestic bird Pok\u00e9mon can create gusts of wind capable of bending tall trees with its powerful wings.",
+        "image2": "sprites\/Pidgeot.webp"
+    },
+    "24": {
+        "name": "Dialga",
+        "type": "Dragon",
+        "hp": 10000,
+        "attack": 120,
+        "defense": 120,
+        "price": 10000,
+        "description": "Dialga is a Legendary Pok\u00e9mon associated with time. It has the power to control time and is a Dragon\/Steel type.",
+        "image2": "sprites\/Dialga.webp"
+    },
+    "25": {
+        "name": "Alakazam",
+        "type": "Psychic",
+        "hp": 500,
+        "attack": 50,
+        "defense": 45,
+        "price": 500,
+        "description": "Alakazam's brain continually grows, making its head far too heavy to support with its neck. This Pok\u00e9mon holds its head up using its psychokinetic power instead.",
+        "image2": "sprites\/Alakazam.webp"
+    },
+    "26": {
+        "name": "Gardevoir",
+        "type": "Psychic",
+        "hp": 518,
+        "attack": 65,
+        "defense": 65,
+        "price": 520,
+        "description": "Gardevoir has the psychokinetic power to distort the dimensions and create a small black hole. This Pok\u00e9mon will try to protect its Trainer even at the risk of its own life.",
+        "image2": "sprites\/Gardevoir.webp"
+    },
+    "27": {
+        "name": "Onix",
+        "type": "Rock",
+        "hp": 300,
+        "attack": 45,
+        "defense": 160,
+        "price": 500,
+        "description": "Onix has a sturdy, rock-hard body. It can withstand earthquakes and tunnel through the ground at speeds over 50 miles per hour.",
+        "image2": "sprites\/Onix.webp"
+    },
+    "28": {
+        "name": "Lapras",
+        "type": "Water",
+        "hp": 535,
+        "attack": 85,
+        "defense": 80,
+        "price": 530,
+        "description": "A gentle soul that can read the minds of people. It can ferry people across the sea on its back, singing in its beautiful voice.",
+        "image2": "sprites\/Lapras.webp"
+    },
+    "29": {
+        "name": "Rayquaza",
+        "type": "Dragon",
+        "hp": 10000,
+        "attack": 150,
+        "defense": 90,
+        "price": 10000,
+        "description": "Rayquaza is said to have lived for hundreds of millions of years in the earth's ozone layer, above the clouds. Its existence had been completely unknown because it lived so high in the sky.",
+        "image2": "sprites\/Rayquaza.webp"
+    },
+    "30": {
+        "name": "Scyther",
+        "type": "Bug",
+        "hp": 220,
+        "attack": 60,
+        "defense": 30,
+        "price": 200,
+        "description": "Scyther is a fast and agile Bug\/Flying-type Pok\u00e9mon known for its impressive speed and sharp scythe-like blades.",
+        "image2": "sprites\/Scyther.webp"
+    },
+    "31": {
+        "name": "Entei",
+        "type": "Fire",
+        "hp": 10000,
+        "attack": 115,
+        "defense": 85,
+        "price": 10000,
+        "description": "Entei embodies the passion of magma. It is thought to have been born in the eruption of a volcano. It sends up massive bursts of fire that utterly consume all that they touch.",
+        "image2": "sprites\/Entei.webp"
+    },
+    "32": {
+        "name": "Palkia",
+        "type": "Dragon",
+        "hp": 10000,
+        "attack": 100,
+        "defense": 120,
+        "price": 10000,
+        "description": "Palkia is a Legendary Pok\u00e9mon associated with space. It has the power to control space and is a Water\/Dragon type.",
+        "image2": "sprites\/Palkia.webp"
+    },
+    "33": {
+        "name": "Muk",
+        "type": "Poison",
+        "hp": 500,
+        "attack": 105,
+        "defense": 75,
+        "price": 480,
+        "description": "Muk's body contains toxic elements, and any plant will wilt when it passes by. It prefers warm and humid habitats.",
+        "image2": "sprites\/Muk.webp"
+    },
+    "34": {
+        "name": "Weezing",
+        "type": "Poison",
+        "hp": 490,
+        "attack": 90,
+        "defense": 120,
+        "price": 470,
+        "description": "Weezing loves the gases given off by rotted kitchen garbage. This Pok\u00e9mon will find a dirty, unkempt house and make it its home.",
+        "image2": "sprites\/Weezing.webp"
+    },
+    "35": {
+        "name": "Absol",
+        "type": "Dark",
+        "hp": 195,
+        "attack": 130,
+        "defense": 60,
+        "price": 650,
+        "description": "Absol is known as the Disaster Pok\u00e9mon. It has the ability to predict natural disasters and is often associated with bad omens.",
+        "image2": "sprites\/Absol.webp"
+    },
+    "36": {
+        "name": "Articuno",
+        "type": "Ice",
+        "hp": 150,
+        "attack": 85,
+        "defense": 100,
+        "price": 900,
+        "description": "Articuno is one of the legendary birds and is known for its control over ice. It is an Ice\/Flying-type Pok\u00e9mon.",
+        "image2": "sprites\/Articuno.webp"
+    },
+    "37": {
+        "name": "Clefable",
+        "type": "Fairy",
+        "hp": 195,
+        "attack": 70,
+        "defense": 73,
+        "price": 650,
+        "description": "Clefable is known for its ability to make wishes come true by dancing under the moonlight. It is a Fairy-type Pok\u00e9mon.",
+        "image2": "sprites\/Clefable.webp"
+    },
+    "38": {
+        "name": "Bulbasaur",
+        "type": "Bug",
+        "hp": 2,
+        "attack": 2,
+        "defense": 2,
+        "price": 1,
+        "description": "aada",
+        "image2": "sprites\/Bulbasaur.webp"
+    },
+    "39": {
+        "name": "Beedrill",
+        "type": "Bug",
+        "hp": 1,
+        "attack": 1,
+        "defense": 1,
+        "price": 1,
+        "description": "rut",
+        "image2": "sprites\/Beedrill.webp"
+    },
+    "40": {
+        "name": "Kakuna",
+        "type": "Bug",
+        "hp": 2,
+        "attack": 2,
+        "defense": 2,
+        "price": 2,
+        "description": "vbx",
+        "image2": "sprites\/Kakuna.webp"
+    },
+    "41": {
+        "name": "Thundurus",
+        "type": "Poison",
+        "hp": 43,
+        "attack": 43,
+        "defense": 655,
+        "price": 60,
+        "description": "A thunder pokemon.",
+        "image2": "sprites\/Thundurus.webp"
+    }
+}
